@@ -1,25 +1,38 @@
 #include <stdio.h>
+#include <math.h>
+
+float fact(int n)
+{
+    if (n == 0)
+    {
+        return 1;
+    }
+    int j = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        j *= i;
+    }
+    return j;
+}
 
 int main()
 {
     int n;
     scanf("%d", &n);
+    float sum = 0;
     for (int i = 1; i <= n; i++)
     {
-        for (int j = 1; j <= n - i; j++)
+        if (i % 2 != 0)
         {
-            printf("  ");
+            sum += i / fact(2 * i - 1);
         }
-        for (int j = i; j >= 1; j--)
+        else
         {
-            printf("%d ", j);
+            sum -= i / fact(2 * i - 1);
         }
-        for (int j = 2; j <= i; j++)
-        {
-            printf("%d ", j);
-        }
-        printf("\n");
     }
+
+    printf("%f", sum);
 
     return 0;
 }

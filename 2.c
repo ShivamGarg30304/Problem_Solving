@@ -1,16 +1,26 @@
 #include <stdio.h>
+#include <math.h>
+
+int fact(int n)
+{
+    int j = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        j *= i;
+    }
+    return j;
+}
 
 int main()
 {
-    int n = 4;
-    for (int i = 1; i <= 4; i++)
-    {
-        for (int j = i; j <= 2 * i - 1; j++)
-        {
-            printf("%d ", j);
-        }
-        printf("\n");
-    }
+    int n;
+    scanf("%d", &n);
 
+    int sum = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        sum += fact(i) / i;
+    }
+    printf("%d", sum);
     return 0;
 }
