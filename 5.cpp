@@ -2,29 +2,29 @@
 
 using namespace std;
 
-bool isPrime(int n)
-{
-    for (int i = 2; i < n; i++)
-    {
-        if (n % i == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
 int main()
 {
-    int a, b;
-    cout << "Enter the range : " << endl;
-    cin >> a >> b;
-    for (int i = a; i <= b; i++)
+    int n;
+    cin >> n;
+    int arr[n];
+    int i = 0;
+    int j;
+    for (j = 1; j <= n; j = j + 2)
     {
-        if (isPrime(i))
-        {
-            cout << i << " ";
-        }
+        arr[i] = j;
+        i++;
     }
+
+    for (int k = j - 1; k >= 2; k = k - 2)
+    {
+        arr[i] = k;
+        i++;
+    }
+
+    for (auto x : arr)
+    {
+        cout << x << " ";
+    }
+
     return 0;
 }

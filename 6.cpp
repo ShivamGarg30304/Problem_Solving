@@ -2,34 +2,23 @@
 
 using namespace std;
 
-bool isAmstrong(int n)
-{
-    int x = n;
-    int ans = 0;
-    while (x != 0)
-    {
-        int rem = x % 10;
-        ans += rem * rem * rem;
-        x /= 10;
-    }
-    if (ans == n)
-    {
-        return true;
-    }
-    return false;
-}
-
 int main()
 {
-    int a, b;
-    cout << "Enter the range : " << endl;
-    cin >> a >> b;
-    for (int i = a; i <= b; i++)
+    int n;
+    cin >> n;
+    int arr[n];
+    for (int i = 0; i < n; i++)
     {
-        if (isAmstrong(i))
-        {
-            cout << i << " ";
-        }
+        cin >> arr[i];
+    }
+    for (int i = 0; i <= n - 2; i = i + 2)
+    {
+        swap(arr[i], arr[i + 1]);
+    }
+
+    for (auto x : arr)
+    {
+        cout << x << " ";
     }
     return 0;
 }
