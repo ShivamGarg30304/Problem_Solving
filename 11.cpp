@@ -2,29 +2,22 @@
 
 using namespace std;
 
+int fib(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return n;
+    }
+    else
+    {
+        return fib(n - 1) + fib(n - 2);
+    }
+}
+
 int main()
 {
     int n;
     cin >> n;
-
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= i; j++)
-        {
-            cout << j << " ";
-        }
-
-        for (int j = 1; j <= 2 * (n - i); j++)
-        {
-            cout << "  ";
-        }
-
-        for (int j = i; j >= 1; j--)
-        {
-            cout << j << " ";
-        }
-
-        cout << endl;
-    }
+    cout << fib(n) << endl;
     return 0;
 }
